@@ -1,3 +1,7 @@
+% directory containing networktools code
+addpath('../networktools')
+addpath('../code')
+
 %% load in masked ER images
 % these were collected from frames 1, 101, 201, etc. processed via elastic
 % also load in raw images for visualization
@@ -13,6 +17,7 @@ nimg = length(info);
 
 % convert pixels to um
 pxperum = info(1).XResolution;
+dt = 0.0106; % timestep for individual frames. The images are gathered every 100 frames.
 
 imgs = zeros(info(1).Width,info(1).Width,nimg);
 bwimgs = imgs;
@@ -137,9 +142,9 @@ projoptions = options;
 % calculate MSD, using nonoverlapping windows
 [MSDtot0,cnttot0,sterrtot0] = MSDensemble(projtracklist,'overlap',@(k) k);
 % time values for the simulated trajectories (in frames);
-tvals = (1:length(MSDtot0))*simopt.dt*simopt.saveEvery;
+tvals = (1:length(MSDtot0))*dt;
 
-loglog(tvals,MSDtot0,tvals,2*simopt.D*tvals)
+loglog(tvals,MSDtot0)
 
 %% Unraveling
 % range of D values to try for unraveling (in px^2/frame)
