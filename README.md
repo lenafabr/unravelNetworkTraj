@@ -25,13 +25,13 @@ This folder contains most of the source code necessary for the "unraveling" meth
 ### Executing program
 
 * Direct the MATLAB "current folder" path to the ```unravelNetworkTraj/examples/``` folder.
-* Run the scripts ```example_expttraj.m``` or ```example_simtraj.m``` using MATLAB.
+* Run the scripts ```examples/example_simtraj.m``` or ```examples/example_expttraj.m``` using MATLAB.
 
-## Example with simulated trajectories:
-INFO HERE
+## Example with simulated trajectories: ```example_simtraj.m```
+In this file, we provide a sample script for the generation and analysis of simulated Brownian trajectories on an experimentally observed ER network. An experimentally filmed ER network recording is loaded and a network structure is extracted by skeletonizing a selected frame from the movie (line 24). We simulate the motion of an ensemble of 100 Brownian particles of diffusivity 1.5um^2/s with 10 thousand discrete time steps (line 51). The simulated trajectories can also be plotted graphically along with the network (line 59-66). We find the optimal estimated diffusivity ```Dopt``` by using the "unraveling" method (line 88) and obtain the unraveled trajectories with the optimal diffusivity (line 95-105). User can compare the MSD of the original trajectories (line 80) and the unraveled trajectories (line 111).
 
-## Example with experimental trajectories:
-INFO HERE
+## Example with experimental trajectories: ```example_expttraj.m```
+In this file, we provide a sample script for the analysis of experimentally tracked Brownian trajectories on an experimentally observed ER network. An experimentally filmed ER network recording is loaded and a sequence of network structures are extracted by skeletonizing every frame from the movie (line 25-29). We simulate the motion of an ensemble of 100 Brownian particles of diffusivity 1.5um^2/s with 10 thousand discrete time steps (line 51). The simulated trajectories can also be plotted graphically along with the network (line 59-66). We find the optimal estimated diffusivity ```Dopt``` by using the "unraveling" method (line 88) and obtain the unraveled trajectories with the optimal diffusivity (line 95-105). User can compare the MSD of the original trajectories (line 80) and the unraveled trajectories (line 111).
 
 ## Authors
 
