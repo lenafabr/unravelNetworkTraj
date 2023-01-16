@@ -750,6 +750,14 @@ methods
          opt.scl = 1;
          
          if (exist('options','var'))
+             
+             if (isfield(options,'plotoverimage') & options.plotoverimage)
+                 % reset defaults for plotting over a BW image
+                 opt.nodesize =20;
+                 opt.nodecolor = [1 0 0];                 
+                 opt.edgeplotopt = {'LineWidth',1,'Color','g'};
+            end
+             
              opt =copyStruct(options,opt,1);
          end
                            
