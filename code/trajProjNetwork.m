@@ -56,7 +56,7 @@ endframe = framerange(2);
 
 if (dodisplay>0)
     %imshowpair(skelimage,im)
-    imshow(opt.im)
+    imshow(opt.im,[])
     hold all
     plot(NT.nodepos(:,1),NT.nodepos(:,2),'r.','MarkerSize',20)
     
@@ -89,7 +89,7 @@ end
 
 %% project trajectories onto the network
 if (dodisplay>0)
-    imshow(opt.im)
+    imshow(opt.im,[])
     hold all
     plot(NT.nodepos(:,1),NT.nodepos(:,2),'r.','MarkerSize',20)
     
@@ -148,10 +148,10 @@ for tc = 1:length(usetracklist)
         ec = closeedges(cc);
         edge = NT.edgepath{ec};
         % go through each edge attached to the close nodes
-        if (dodisplay>0)
-            plot(edge(:,1),edge(:,2),'m.-','MarkerSize',10)
+        %if (dodisplay>0)
+        %    plot(edge(:,1),edge(:,2),'m.-','MarkerSize',10)
             %text(edge(2,1),edge(2,2),sprintf('%d',ec))
-        end
+        %end
         % find closest point along this edge
         [xy(:,:,cc),distances(:,cc),edgefrac(:,cc)] = distance2curve(edge,track(:,1:2));
     end
@@ -206,7 +206,7 @@ for tc = 1:length(usetracklist)
     if (dodisplay>0)
         for pc = 1:length(newprojtracks)
             projtrack2 = newprojtracks{pc};
-            plot(projtrack2(:,1),projtrack2(:,2),'c.-','MarkerSize',10)
+            plot(projtrack2(:,1),projtrack2(:,2),'m.-','MarkerSize',10)
         end
     end
     
